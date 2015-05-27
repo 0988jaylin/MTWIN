@@ -1,7 +1,7 @@
 USE [MTWIN]
 GO
 
-/****** Object:  Table [dbo].[分類項目]    Script Date: 05/28/2015 00:30:12 ******/
+/****** Object:  Table [dbo].[分類項目]    Script Date: 05/28/2015 03:36:23 ******/
 SET ANSI_NULLS ON
 GO
 

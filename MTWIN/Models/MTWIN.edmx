@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MTWINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MTWIN.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="分類項目">
           <Key>
             <PropertyRef Name="分類Id" />
@@ -79,7 +79,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MTWINModelStoreContainer">
+        <EntityContainer Name="MTWINStoreContainer">
           <EntitySet Name="分類項目" EntityType="Self.分類項目" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="店家登錄" EntityType="Self.店家登錄" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="首頁項目" EntityType="Self.首頁項目" Schema="dbo" store:Type="Tables" />
@@ -89,10 +89,11 @@
             <End Role="推薦店家" EntitySet="推薦店家" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MTWINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MTWIN" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="分類項目">
           <Key>
             <PropertyRef Name="分類Id" />
@@ -116,6 +117,23 @@
           <Property Name="已詳閱個資聲明" Type="Boolean" Nullable="false" />
           <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="首頁項目">
+          <Key>
+            <PropertyRef Name="首頁項目Id" />
+          </Key>
+          <Property Name="首頁項目Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="項目類型" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="圖檔替代名稱" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="圖檔提示文字" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="圖片檔位置" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="連結網址" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="總曝光數" Type="Int32" Nullable="false" />
+          <Property Name="總點擊次數" Type="Int32" Nullable="false" />
+          <Property Name="建立者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="修改者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="修改時間" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="推薦店家">
           <Key>
             <PropertyRef Name="店家Id" />
@@ -124,13 +142,12 @@
           <Property Name="分類項Id" Type="Int32" Nullable="false" />
           <Property Name="名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="電話" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="郵遞區號" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="城市" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="鄉鎮市區" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="街道" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="特色介紹" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="圖片檔位置" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="分類項目" Relationship="Self.FK_推薦店家_分類項目" FromRole="推薦店家" ToRole="分類項目" />
-          <Property Name="郵遞區號" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="連結網址" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="點擊數" Type="Int32" Nullable="false" />
           <Property Name="排序編號" Type="Int32" Nullable="false" />
@@ -139,6 +156,7 @@
           <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="修改者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="修改時間" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="分類項目" Relationship="Self.FK_推薦店家_分類項目" FromRole="推薦店家" ToRole="分類項目" />
         </EntityType>
         <Association Name="FK_推薦店家_分類項目">
           <End Role="分類項目" Type="Self.分類項目" Multiplicity="1" />
@@ -155,38 +173,21 @@
         <EntityContainer Name="MTWINEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="分類項目" EntityType="Self.分類項目" />
           <EntitySet Name="店家登錄" EntityType="Self.店家登錄" />
+          <EntitySet Name="首頁項目" EntityType="Self.首頁項目" />
           <EntitySet Name="推薦店家" EntityType="Self.推薦店家" />
           <AssociationSet Name="FK_推薦店家_分類項目" Association="Self.FK_推薦店家_分類項目">
             <End Role="分類項目" EntitySet="分類項目" />
             <End Role="推薦店家" EntitySet="推薦店家" />
           </AssociationSet>
-          <EntitySet Name="首頁項目" EntityType="MTWINModel.首頁項目" />
         </EntityContainer>
-        <EntityType Name="首頁項目">
-          <Key>
-            <PropertyRef Name="首頁項目Id" />
-          </Key>
-          <Property Name="首頁項目Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="項目類型" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="圖檔替代名稱" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="圖檔提示文字" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="圖片檔位置" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="連結網址" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="總曝光數" Type="Int32" Nullable="false" />
-          <Property Name="總點擊次數" Type="Int32" Nullable="false" />
-          <Property Name="建立者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="修改者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="修改時間" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MTWINModelStoreContainer" CdmEntityContainer="MTWINEntities">
+        <EntityContainerMapping StorageEntityContainer="MTWINStoreContainer" CdmEntityContainer="MTWINEntities">
           <EntitySetMapping Name="分類項目">
-            <EntityTypeMapping TypeName="MTWINModel.分類項目">
+            <EntityTypeMapping TypeName="MTWIN.分類項目">
               <MappingFragment StoreEntitySet="分類項目">
                 <ScalarProperty Name="分類Id" ColumnName="分類Id" />
                 <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
@@ -194,10 +195,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="店家登錄">
-            <EntityTypeMapping TypeName="MTWINModel.店家登錄">
+            <EntityTypeMapping TypeName="MTWIN.店家登錄">
               <MappingFragment StoreEntitySet="店家登錄">
-                <ScalarProperty Name="建立時間" ColumnName="建立時間" />
-                <ScalarProperty Name="已詳閱個資聲明" ColumnName="已詳閱個資聲明" />
                 <ScalarProperty Name="登錄Id" ColumnName="登錄Id" />
                 <ScalarProperty Name="是登錄店家資料" ColumnName="是登錄店家資料" />
                 <ScalarProperty Name="是廣告刊登" ColumnName="是廣告刊登" />
@@ -206,48 +205,50 @@
                 <ScalarProperty Name="刊登電話" ColumnName="刊登電話" />
                 <ScalarProperty Name="聯絡電話" ColumnName="聯絡電話" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="已詳閱個資聲明" ColumnName="已詳閱個資聲明" />
+                <ScalarProperty Name="建立時間" ColumnName="建立時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="首頁項目">
+            <EntityTypeMapping TypeName="MTWIN.首頁項目">
+              <MappingFragment StoreEntitySet="首頁項目">
+                <ScalarProperty Name="首頁項目Id" ColumnName="首頁項目Id" />
+                <ScalarProperty Name="項目類型" ColumnName="項目類型" />
+                <ScalarProperty Name="圖檔替代名稱" ColumnName="圖檔替代名稱" />
+                <ScalarProperty Name="圖檔提示文字" ColumnName="圖檔提示文字" />
+                <ScalarProperty Name="圖片檔位置" ColumnName="圖片檔位置" />
+                <ScalarProperty Name="連結網址" ColumnName="連結網址" />
+                <ScalarProperty Name="總曝光數" ColumnName="總曝光數" />
+                <ScalarProperty Name="總點擊次數" ColumnName="總點擊次數" />
+                <ScalarProperty Name="建立者" ColumnName="建立者" />
+                <ScalarProperty Name="建立時間" ColumnName="建立時間" />
+                <ScalarProperty Name="修改者" ColumnName="修改者" />
+                <ScalarProperty Name="修改時間" ColumnName="修改時間" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="推薦店家">
-            <EntityTypeMapping TypeName="MTWINModel.推薦店家">
+            <EntityTypeMapping TypeName="MTWIN.推薦店家">
               <MappingFragment StoreEntitySet="推薦店家">
-                <ScalarProperty Name="修改時間" ColumnName="修改時間" />
-                <ScalarProperty Name="修改者" ColumnName="修改者" />
-                <ScalarProperty Name="建立時間" ColumnName="建立時間" />
-                <ScalarProperty Name="建立者" ColumnName="建立者" />
-                <ScalarProperty Name="是首頁輪播" ColumnName="是首頁輪播" />
-                <ScalarProperty Name="排序編號" ColumnName="排序編號" />
-                <ScalarProperty Name="點擊數" ColumnName="點擊數" />
-                <ScalarProperty Name="連結網址" ColumnName="連結網址" />
-                <ScalarProperty Name="郵遞區號" ColumnName="郵遞區號" />
                 <ScalarProperty Name="店家Id" ColumnName="店家Id" />
                 <ScalarProperty Name="分類項Id" ColumnName="分類項Id" />
                 <ScalarProperty Name="名稱" ColumnName="名稱" />
                 <ScalarProperty Name="電話" ColumnName="電話" />
+                <ScalarProperty Name="郵遞區號" ColumnName="郵遞區號" />
                 <ScalarProperty Name="城市" ColumnName="城市" />
                 <ScalarProperty Name="鄉鎮市區" ColumnName="鄉鎮市區" />
                 <ScalarProperty Name="街道" ColumnName="街道" />
                 <ScalarProperty Name="特色介紹" ColumnName="特色介紹" />
                 <ScalarProperty Name="圖片檔位置" ColumnName="圖片檔位置" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="首頁項目">
-            <EntityTypeMapping TypeName="MTWINModel.首頁項目">
-              <MappingFragment StoreEntitySet="首頁項目">
-                <ScalarProperty Name="修改時間" ColumnName="修改時間" />
-                <ScalarProperty Name="修改者" ColumnName="修改者" />
-                <ScalarProperty Name="建立時間" ColumnName="建立時間" />
-                <ScalarProperty Name="建立者" ColumnName="建立者" />
-                <ScalarProperty Name="總點擊次數" ColumnName="總點擊次數" />
-                <ScalarProperty Name="總曝光數" ColumnName="總曝光數" />
                 <ScalarProperty Name="連結網址" ColumnName="連結網址" />
-                <ScalarProperty Name="圖片檔位置" ColumnName="圖片檔位置" />
-                <ScalarProperty Name="圖檔提示文字" ColumnName="圖檔提示文字" />
-                <ScalarProperty Name="圖檔替代名稱" ColumnName="圖檔替代名稱" />
-                <ScalarProperty Name="項目類型" ColumnName="項目類型" />
-                <ScalarProperty Name="首頁項目Id" ColumnName="首頁項目Id" />
+                <ScalarProperty Name="點擊數" ColumnName="點擊數" />
+                <ScalarProperty Name="排序編號" ColumnName="排序編號" />
+                <ScalarProperty Name="是首頁輪播" ColumnName="是首頁輪播" />
+                <ScalarProperty Name="建立者" ColumnName="建立者" />
+                <ScalarProperty Name="建立時間" ColumnName="建立時間" />
+                <ScalarProperty Name="修改者" ColumnName="修改者" />
+                <ScalarProperty Name="修改時間" ColumnName="修改時間" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

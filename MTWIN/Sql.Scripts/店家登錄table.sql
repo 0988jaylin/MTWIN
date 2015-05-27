@@ -1,7 +1,7 @@
 USE [MTWIN]
 GO
 
-/****** Object:  Table [dbo].[店家登錄]    Script Date: 05/28/2015 00:30:19 ******/
+/****** Object:  Table [dbo].[店家登錄]    Script Date: 05/28/2015 03:36:29 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -20,6 +20,8 @@ CREATE TABLE [dbo].[店家登錄](
 	[刊登電話] [varchar](12) NOT NULL,
 	[聯絡電話] [nvarchar](50) NOT NULL,
 	[Email] [varchar](100) NULL,
+	[已詳閱個資聲明] [bit] NOT NULL,
+	[建立時間] [datetime] NOT NULL,
  CONSTRAINT [PK_店家登錄] PRIMARY KEY CLUSTERED 
 (
 	[登錄Id] ASC
@@ -35,5 +37,11 @@ ALTER TABLE [dbo].[店家登錄] ADD  CONSTRAINT [DF_店家登錄_是登錄店�
 GO
 
 ALTER TABLE [dbo].[店家登錄] ADD  CONSTRAINT [DF_店家登錄_是廣告刊登]  DEFAULT ((0)) FOR [是廣告刊登]
+GO
+
+ALTER TABLE [dbo].[店家登錄] ADD  CONSTRAINT [DF_店家登錄_已詳閱個資聲明]  DEFAULT ((1)) FOR [已詳閱個資聲明]
+GO
+
+ALTER TABLE [dbo].[店家登錄] ADD  CONSTRAINT [DF_店家登錄_建立時間]  DEFAULT (getdate()) FOR [建立時間]
 GO
 

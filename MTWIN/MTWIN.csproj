@@ -214,6 +214,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Models\IRepository.EF6.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IRepository.EF6.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EFGeneratePartialClass.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EFGeneratePartialClass.cs</LastGenOutput>
+    </Content>
     <EntityDeploy Include="Models\MTWIN.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MTWIN.Designer.cs</LastGenOutput>
@@ -230,14 +238,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MTWIN.edmx</DependentUpon>
       <LastGenOutput>MTWIN.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\IRepository.EF6.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>IRepository.EF6.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EFGeneratePartialClass.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EFGeneratePartialClass.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Register.aspx" />

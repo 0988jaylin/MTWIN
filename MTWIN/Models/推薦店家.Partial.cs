@@ -24,6 +24,9 @@ namespace MTWIN.Models
         [Required]
         public string 電話 { get; set; }
         
+        [StringLength(3, ErrorMessage="欄位長度不得大於 3 個字元")]
+        public string 郵遞區號 { get; set; }
+        
         [StringLength(10, ErrorMessage="欄位長度不得大於 10 個字元")]
         [Required]
         public string 城市 { get; set; }
@@ -42,9 +45,6 @@ namespace MTWIN.Models
         
         [StringLength(1000, ErrorMessage="欄位長度不得大於 1000 個字元")]
         public string 圖片檔位置 { get; set; }
-        
-        [StringLength(3, ErrorMessage="欄位長度不得大於 3 個字元")]
-        public string 郵遞區號 { get; set; }
         
         [StringLength(500, ErrorMessage="欄位長度不得大於 500 個字元")]
         public string 連結網址 { get; set; }

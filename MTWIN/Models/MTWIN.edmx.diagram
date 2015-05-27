@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a98df80c40af4c15a67e657ddc90b13c" Name="Diagram1">
-        <EntityTypeShape EntityType="MTWINModel.分類項目" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MTWINModel.店家登錄" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MTWINModel.推薦店家" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="MTWINModel.FK_推薦店家_分類項目" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="MTWINModel.首頁項目" Width="1.5" PointX="7.5" PointY="0.875" />
+      <Diagram DiagramId="971c64a12ed7441c936827e390e9458d" Name="Diagram1">
+        <EntityTypeShape EntityType="MTWIN.分類項目" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTWIN.店家登錄" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTWIN.首頁項目" Width="1.5" PointX="7.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTWIN.推薦店家" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="MTWIN.FK_推薦店家_分類項目" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

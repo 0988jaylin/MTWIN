@@ -18,12 +18,12 @@ namespace MTWIN.Models
         public int 分類項Id { get; set; }
         public string 名稱 { get; set; }
         public string 電話 { get; set; }
+        public string 郵遞區號 { get; set; }
         public string 城市 { get; set; }
         public string 鄉鎮市區 { get; set; }
         public string 街道 { get; set; }
         public string 特色介紹 { get; set; }
         public string 圖片檔位置 { get; set; }
-        public string 郵遞區號 { get; set; }
         public string 連結網址 { get; set; }
         public int 點擊數 { get; set; }
         public int 排序編號 { get; set; }
