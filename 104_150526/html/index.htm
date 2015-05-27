@@ -1,0 +1,430 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首頁 | 104網路查號台</title>
+<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="js/respond.min.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<div id="header" class="clearfix">
+	<div class="header">
+    	<div class="logo"><a href="index.htm"><img src="images/common/logo-104.png" alt="logo"/></a>
+    <!--這是版面 Div 標籤「logo」的內容--></div>
+    <!--這是版面 Div 標籤「header」的內容--></div>
+<!--這是版面 Div 標籤「header」的內容--></div>
+<div id="mainMenu" class="clearfix ">
+	<div class="mainMenu">
+    <div class="menuSwitch"><a href="#">主選單<i>icon</i></a></div>
+	<ul id="menu">
+        <li class="menu1"><a href="index.htm">首頁</a></li>
+        <li class="menu2"><a href="query.htm">工商查詢</a></li>
+        <li class="menu3"><p>推薦店家</p>
+        	<ul>
+            	<li><a href="store_list.htm">美食餐飲</a></li>
+                <li><a href="store_list.htm">休閒購物</a></li>
+                <li><a href="store_list.htm">居家生活</a></li>
+                <li><a href="store_list.htm">藝文工商</a></li>
+                <li><a href="store_list.htm">計程車行</a></li>
+            </ul>
+        </li>
+        <li class="menu4"><a href="register.htm">店家登錄</a></li>
+        <li class="menu5"><a href="about.htm">關於我們</a></li>
+        <li class="menu6"><a href="rules.htm">服務條款</a></li>
+        <li class="menu7"><a href="privacy.htm">個資保護聲明</a></li>
+    </ul>
+    <!--這是版面 Div 標籤「mainMenu」的內容--></div>
+<!--這是版面 Div 標籤「mainMenu」的內容--></div>
+	<div class="gridContainer clearfix">
+   	  <div class="container">
+        	<div id="slides">
+      			<a href="#"><img src="images/slider/banner1.jpg" alt=""></a>
+      			<a href="#"><img src="images/slider/banner2.jpg" alt=""></a>
+      			<a href="#"><img src="images/slider/banner3.jpg" alt=""></a>
+            	<a href="#"><img src="images/slider/banner4.jpg" alt=""></a>
+                <a href="#"><img src="images/slider/banner5.jpg" alt=""></a>
+        	</div>
+         <div class="ad1"><a href="#" target="_blank"><img src="images/ad/banner_678x260.jpg" alt=""/></a></div>
+         <div class="ad-mv1">
+            <div class="video" data-mv="https://www.youtube.com/embed/rVuSi4RSFhQ?rel=0&autoplay=1">
+                <img src="https://i.ytimg.com/vi/rVuSi4RSFhQ/mqdefault.jpg" />
+            </div>
+            <div class="video" data-mv="https://www.youtube.com/embed/0fkpNNC99uE?rel=0&autoplay=1">
+                <img src="https://i.ytimg.com/vi/0fkpNNC99uE/mqdefault.jpg" />
+            </div>
+            <div class="video" data-mv="https://www.youtube.com/embed/X-ZxVKOGlag?rel=0&autoplay=1">
+                <img src="https://i.ytimg.com/vi/X-ZxVKOGlag/mqdefault.jpg" />
+            </div>
+            <div class="video" data-mv="https://www.youtube.com/embed/Hq5kkDkpX0A?rel=0&autoplay=1">
+            	<img src="https://i.ytimg.com/vi/Hq5kkDkpX0A/mqdefault.jpg" /></div>
+            <div class="video" data-mv="https://www.youtube.com/embed/0fkpNNC99uE?rel=0&autoplay=1">
+                <img src="https://i.ytimg.com/vi/0fkpNNC99uE/mqdefault.jpg" />
+            </div>
+        </div>
+        <div id="storeBlock" class="fluid ">
+        	<div class="stores">
+           	  <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱<!--最多9個全形字，超過會以...顯示--></h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號<!--最多16個全形字，超過會造成框架位移--></li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色<!--最多48個全形字，超過會造成整個框架位移--></p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+           	  <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱<!--最多9個全形字，超過會以...顯示--></h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號<!--最多16個全形字，超過會造成框架位移--></li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色<!--最多48個全形字，超過會造成整個框架位移--></p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+           	  <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱<!--最多9個全形字，超過會以...顯示--></h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號<!--最多16個全形字，超過會造成框架位移--></li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色<!--最多48個全形字，超過會造成整個框架位移--></p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+           	  <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱<!--最多9個全形字，超過會以...顯示--></h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號<!--最多16個全形字，超過會造成框架位移--></li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色<!--最多48個全形字，超過會造成整個框架位移--></p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="store">
+                	                    <span class="pic"><img src="images/store/storePicture400x300.jpg" alt=""/>
+               	  <!--這是版面 Div 標籤「pic」的內容--></span>
+                  	<span class="info">
+                    	<h2 class="title">店家名稱 </h2>
+                        <ul>
+                        	<li>電話 / 02-12345678</li>
+                            <li>地址 / 台北市仁愛路一段42號</li>
+                        </ul>
+                        <p>店家特色店家特色店家特色店家特色店家特色店家特色店家特色</p>
+                    <!--這是版面 Div 標籤的內容--></span>
+                    <span class="clear">&nbsp;</span>
+              <!--這是版面 Div 標籤「store」的內容--></div>
+              
+              <div class="clear"></div>
+            <!--這是版面 Div 標籤「stores」的內容--></div>
+        <!--這是版面 Div 標籤「storeBlock」的內容--></div>
+        <div class="clear"></div>
+        <!--這是版面 Div 標籤「container」的內容--></div>
+	</div>
+<div id="footer" class="fluid ">
+  <div class="footer">
+    	<div class="links"><a href="rules.htm">服務條款</a> | <a href="privacy.htm">個資保護聲明</a>
+        <!--這是版面 Div 標籤「links」的內容--></div>
+        <div class="logo"><a href="#" target="_blank"><img src="images/common/logo-cht.png" alt=""/></a>
+   	  	<!--這是版面 Div 標籤「logo」的內容--></div>
+   		<div class="copy">&copy; 2015 Chunghwa Telecom Co., Ltd.<!--這是版面 Div 標籤「copy」的內容--></div>
+
+        <div class="clear"></div>
+  <!--這是版面 Div 標籤「footer」的內容--></div>
+<!--這是版面 Div 標籤「footer」的內容--></div>
+
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.slides.min.js"></script>
+<script src="js/menu.js"></script>
+<script>
+//
+var adVideo_url;
+var adVideo_height;
+var videoArray = [];
+$(function() {
+      $('#slides').slidesjs({
+        width: 670,
+        height: 377,
+        navigation: {
+      		active: false,
+      		effect: "fade"
+	     	},
+		pagination: {
+      		active: true,
+      		effect: "fade"
+    		},
+		play: {
+      		active: false,
+		    effect: "fade",
+      		interval: 3000,
+      		auto: true,
+		    swap: true,
+			pauseOnHover: false,
+			restartDelay: 2500
+			}
+      });
+	  //
+	  
+	  $('.ad-mv1').slidesjs({
+        width: 339,
+        height: 191,
+        navigation: {
+      		active: false,
+      		effect: "fade"
+	     	},
+		pagination: {
+      		active: true,
+      		effect: "fade"
+    		},
+		play: {
+      		active: true,
+		    effect: "fade",
+      		interval: 3000,
+      		auto: true,
+		    swap: true,
+			pauseOnHover: false,
+			restartDelay: 2500
+			},
+		callback: {
+      		loaded: function(number) {
+        	// Do something awesome!
+        	// Passes start slide number
+				$('.ad-mv1').append('<div class="btn_play"></div>');
+	  			$('.ad-mv1').append('<iframe id="adVideo" allowtransparency="true" frameborder="0" marginheight="0" marginwidth="0"></iframe>');
+			
+				reHeight_adVideo();
+	  			//get video data-mv into array
+	  
+	  			$('.video').each(function(index, element) {
+        			var u = $(this).data('mv');
+					videoArray.push(u);
+    			});
+				videoURL(0);
+	  			//
+	  			$('.btn_play').click(function(e) {
+					$('.slidesjs-stop').click();
+					//alert($('.btn_play').text());
+       				adVideo_url = $('.btn_play').text();
+					//alert('adVideo_url:'+adVideo_url);
+					$('#adVideo').attr('src',adVideo_url);
+					$('#adVideo').show();
+				});
+			
+				$('.slidesjs-navigation').click(function(e) {
+					$('#adVideo').removeAttr('src');
+					$('#adVideo').hide();
+    			});
+				$('.slidesjs-pagination-item a').click(function(e) {
+        			$('#adVideo').removeAttr('src');
+					$('#adVideo').hide();
+    			});
+      		},
+      		start: function(number) {
+        	// Do something awesome!
+        	// Passes slide number at start of animation
+				var n = Number(number)-1;
+				videoURL(n);
+      		},
+      		complete: function(number) {
+				var n = Number(number)-1;
+				videoURL(n);
+      		}
+    	}
+      });
+	  
+	
+	
+	
+	function videoURL(n)
+	{
+		var url = videoArray[n];
+		$('.btn_play').text(url);
+	}
+		
+});
+function reHeight_adVideo()
+{
+	adVideo_height = $('.ad-mv1 .slidesjs-control').height();
+	$('#adVideo').height(adVideo_height);
+	$('.btn_play').height(adVideo_height);
+}
+//
+//ad_mv ReSize
+function adMV()
+{
+	var w = $(window).width();
+	var adW = $('.ad-mv1').width();
+	var adH = Math.floor(adW/16*9);
+	var adRealH;
+	if(w > 768)
+	{
+		adRealH = $('#slides').height()-$('.ad1').height()-12;
+		//alert("adW:"+adW+", adRealH:"+adRealH+", adH:"+adH);
+		$('.ad-mv1').height(adRealH);
+	
+		if((adRealH-adH) < 30)
+		{
+			adH = adRealH-30;
+		}
+		$('.ad-mv1 .slidesjs-container').height(adH);
+		$('.ad-mv1 .slidesjs-control').height(adH);
+		$('.ad-mv1 .slidesjs-container').width(adW);
+		$('.ad-mv1 .slidesjs-control').width(adW);
+	}else{
+		adRealH = adH+30;
+		$('.ad-mv1').height(adRealH);
+		$('.ad-mv1 .slidesjs-container').height(adH);
+		$('.ad-mv1 .slidesjs-control').height(adH);
+	}
+}
+//
+
+//
+$(window).load(function(e) {
+    adMV();
+	
+});
+
+$(window).resize(function(e) {
+    adMV();
+	reHeight_adVideo();
+});
+</script>
+</body>
+</html>

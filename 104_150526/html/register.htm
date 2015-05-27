@@ -1,0 +1,126 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>店家登錄 | 104網路查號台</title>
+<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="js/respond.min.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<div id="header" class="clearfix">
+	<div class="header">
+    	<div class="logo"><a href="index.htm"><img src="images/common/logo-104.png" alt="logo"/></a>
+    <!--這是版面 Div 標籤「logo」的內容--></div>
+    <!--這是版面 Div 標籤「header」的內容--></div>
+<!--這是版面 Div 標籤「header」的內容--></div>
+<div id="mainMenu" class="clearfix ">
+	<div class="mainMenu">
+    <div class="menuSwitch"><a href="#">主選單<i>icon</i></a></div>
+	<ul id="menu">
+        <li class="menu1"><a href="index.htm">首頁</a></li>
+        <li class="menu2"><a href="query.htm">工商查詢</a></li>
+        <li class="menu3"><p>推薦店家</p>
+        	<ul>
+            	<li><a href="store_list.htm">美食餐飲</a></li>
+                <li><a href="store_list.htm">休閒購物</a></li>
+                <li><a href="store_list.htm">居家生活</a></li>
+                <li><a href="store_list.htm">藝文工商</a></li>
+                <li><a href="store_list.htm">計程車行</a></li>
+            </ul>
+        </li>
+        <li class="menu4"><a href="register.htm">店家登錄</a></li>
+        <li class="menu5"><a href="about.htm">關於我們</a></li>
+        <li class="menu6"><a href="rules.htm">服務條款</a></li>
+        <li class="menu7"><a href="privacy.htm">個資保護聲明</a></li>
+    </ul>
+    <!--這是版面 Div 標籤「mainMenu」的內容--></div>
+<!--這是版面 Div 標籤「mainMenu」的內容--></div>
+	<div class="gridContainer clearfix">
+      <h1 class="head register">店家登錄</h1>
+   	  <div class="container">
+       	<p class="notice">請店家自行填寫，填好送出後，會有專人與您聯繫!!!中華電信1288感謝您!!!<br>
+        刊登費用詳見 <a href="http://www.cht.com.tw/personal/1288-rate.html" target="_blank">1288費用說明</a></p>
+        <form id="form1" name="form1" method="post" class="regForm">
+        <p class="notice2">* 為必填欄位</p>
+       	  <p>
+        	  <span class="notice2">*</span>
+        	  <label>
+        	    <input type="checkbox" name="CheckboxGroup1" value="核取方塊" id="CheckboxGroup1_0">
+        	    登錄店家資料</label>
+        	  
+        	  <label>
+        	    <input type="checkbox" name="CheckboxGroup1" value="核取方塊" id="CheckboxGroup1_1">
+        	    廣告刊登</label>
+        	  (可複選)
+      	  </p>
+          <p>
+            <label class="label" for="field_title"><span class="notice2">*</span> 店家名稱</label>
+            <input class="input" type="text" name="field_title" id="field_title">
+          </p>
+          <p>
+            <label class="label" for="field_contact"><span class="notice2">*</span> 聯&nbsp;絡&nbsp;人</label>
+            <input class="input" type="text" name="field_contact" id="field_contact">
+          </p>
+          <p>
+            <label class="label" for="field_tel"><span class="notice2">*</span> 刊登電話</label>
+            <input class="input" type="text" name="field_tel" id="field_tel">
+          </p>
+          <p>
+            <label class="label" for="field_contactTel"><span class="notice2">*</span> 聯絡電話</label>
+            <input class="input" type="text" name="field_contactTel" id="field_contactTel">
+          </p>
+          <p>
+            <label class="label" for="field_mail">&nbsp;&nbsp;&nbsp;E-mail</label>
+            <input class="input" type="text" name="field_mail" id="field_mail">
+          </p>
+          <p>
+          <label class="label2" for="field_code">&nbsp;&nbsp;&nbsp;驗證碼</label>
+            <input class="input2" type="text" name="field_code" id="field_code" style="width:5em">
+           <img src="images/captcha.php.png" alt=""/> <a href="#">重新整理</a> </p>
+           <p>
+             &nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox" id="checkbox">
+             <label for="checkbox">我已詳細閱讀「<a href="privacy.htm" target="_blank">個資保護聲明</a>」並同意其內容。</label>
+           </p>
+           <p align="center">
+           <input type="submit" value="填好送出" class="btn_style1" style="margin-top:20px">
+          </p>
+        </form>
+<div class="clear"></div>
+        <!--這是版面 Div 標籤「container」的內容--></div>
+	</div>
+<div id="footer" class="fluid ">
+  <div class="footer">
+    	<div class="links"><a href="rules.htm">服務條款</a> | <a href="privacy.htm">個資保護聲明</a>
+        <!--這是版面 Div 標籤「links」的內容--></div>
+        <div class="logo"><a href="#" target="_blank"><img src="images/common/logo-cht.png" alt=""/></a>
+   	  	<!--這是版面 Div 標籤「logo」的內容--></div>
+   		<div class="copy">&copy; 2015 Chunghwa Telecom Co., Ltd.<!--這是版面 Div 標籤「copy」的內容--></div>
+
+        <div class="clear"></div>
+  <!--這是版面 Div 標籤「footer」的內容--></div>
+<!--這是版面 Div 標籤「footer」的內容--></div>
+
+<script src="js/jquery-ui.js"></script>
+<script src="js/menu.js"></script>
+</body>
+</html>
