@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="MTWIN.About" %>
+﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Backend.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="MTWIN.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

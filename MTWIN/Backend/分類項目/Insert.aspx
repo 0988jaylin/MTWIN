@@ -1,4 +1,4 @@
-﻿<%@ Page Title="分類項目Insert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="MTWIN.Backend.分類項目.Insert" %>
+﻿<%@ Page Title="分類項目Insert" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Insert.aspx.cs" Inherits="MTWIN.Backend.分類項目.Insert" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>

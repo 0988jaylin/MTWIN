@@ -1,4 +1,4 @@
-﻿<%@ Page Title="分類項目List" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="MTWIN.Backend.分類項目.Default" %>
+﻿<%@ Page Title="分類項目List" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Default.aspx.cs" Inherits="MTWIN.Backend.分類項目.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>分類項目 List</h2>

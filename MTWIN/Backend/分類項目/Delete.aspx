@@ -1,4 +1,4 @@
-﻿<%@ Page Title="分類項目Delete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="MTWIN.Backend.分類項目.Delete" %>
+﻿<%@ Page Title="分類項目Delete" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Delete.aspx.cs" Inherits="MTWIN.Backend.分類項目.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
