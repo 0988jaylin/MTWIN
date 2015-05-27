@@ -11,10 +11,8 @@ using MTWIN.Models;
 
 namespace MTWIN.Backend.首頁項目
 {
-    public partial class Delete : System.Web.UI.Page
+    public partial class Delete : BasePage
     {
-		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
-
         protected void Page_Load(object sender, EventArgs e)
         {
         }
@@ -23,15 +21,12 @@ namespace MTWIN.Backend.首頁項目
         // USAGE: <asp:FormView DeleteMethod="DeleteItem">
         public void DeleteItem(int 首頁項目Id)
         {
-            using (_db)
-            {
-                var item = _db.首頁項目.Find(首頁項目Id);
+            var item = _repo首頁項目.Find(首頁項目Id);
 
-                if (item != null)
-                {
-                    _db.首頁項目.Remove(item);
-                    _db.SaveChanges();
-                }
+            if (item != null)
+            {
+                _repo首頁項目.Delete(item);
+                _repo首頁項目.UnitOfWork.Commit();
             }
             Response.Redirect("../Default");
         }

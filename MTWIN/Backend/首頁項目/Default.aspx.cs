@@ -9,9 +9,8 @@ using MTWIN.Models;
 
 namespace MTWIN.Backend.首頁項目
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Default : BasePage
     {
-		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
 
         protected void Page_Load(object sender, EventArgs e)
         {

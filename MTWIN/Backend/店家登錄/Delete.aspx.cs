@@ -11,9 +11,8 @@ using MTWIN.Models;
 
 namespace MTWIN.Backend.店家登錄
 {
-    public partial class Delete : System.Web.UI.Page
+    public partial class Delete : BasePage
     {
-		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,15 +22,12 @@ namespace MTWIN.Backend.店家登錄
         // USAGE: <asp:FormView DeleteMethod="DeleteItem">
         public void DeleteItem(int 登錄Id)
         {
-            using (_db)
-            {
-                var item = _db.店家登錄.Find(登錄Id);
+            var item = _repo店家登錄.Find(登錄Id);
 
-                if (item != null)
-                {
-                    _db.店家登錄.Remove(item);
-                    _db.SaveChanges();
-                }
+            if (item != null)
+            {
+                _repo店家登錄.Delete(item);
+                _repo店家登錄.UnitOfWork.Commit();
             }
             Response.Redirect("../Default");
         }
@@ -47,7 +43,7 @@ namespace MTWIN.Backend.店家登錄
 
             using (_db)
             {
-	            return _db.店家登錄.Where(m => m.登錄Id == 登錄Id).FirstOrDefault();
+                return _db.店家登錄.Where(m => m.登錄Id == 登錄Id).FirstOrDefault();
             }
         }
 

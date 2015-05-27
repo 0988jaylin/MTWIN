@@ -11,10 +11,8 @@ using MTWIN.Models;
 
 namespace MTWIN.Backend.推薦店家
 {
-    public partial class Details : System.Web.UI.Page
+    public partial class Details : BasePage
     {
-		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
-
         protected void Page_Load(object sender, EventArgs e)
         {
         }

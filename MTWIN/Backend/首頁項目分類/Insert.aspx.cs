@@ -7,30 +7,31 @@ using System.Web.UI.WebControls;
 using System.Data.Entity;
 using MTWIN.Models;
 
-namespace MTWIN.Backend.店家登錄
+namespace MTWIN.Backend.首頁項目分類
 {
-    public partial class Insert : BasePage
+    public partial class Insert : System.Web.UI.Page
     {
+		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        // This is the Insert method to insert the entered 店家登錄 item
+        // This is the Insert method to insert the entered 首頁項目分類 item
         // USAGE: <asp:FormView InsertMethod="InsertItem">
         public void InsertItem()
         {
             using (_db)
             {
-                var item = new MTWIN.Models.店家登錄();
+                var item = new MTWIN.Models.首頁項目分類();
 
                 TryUpdateModel(item);
 
                 if (ModelState.IsValid)
                 {
                     // Save changes
-                    _db.店家登錄.Add(item);
+                    _db.首頁項目分類.Add(item);
                     _db.SaveChanges();
 
                     Response.Redirect("Default");

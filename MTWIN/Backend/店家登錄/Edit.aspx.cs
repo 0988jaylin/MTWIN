@@ -10,9 +10,8 @@ using Microsoft.AspNet.FriendlyUrls.ModelBinding;
 using MTWIN.Models;
 namespace MTWIN.Backend.店家登錄
 {
-    public partial class Edit : System.Web.UI.Page
+    public partial class Edit : BasePage
     {
-		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
 
         protected void Page_Load(object sender, EventArgs e)
         {
