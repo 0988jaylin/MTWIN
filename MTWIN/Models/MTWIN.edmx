@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MTWINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="分類項目">
+          <Key>
+            <PropertyRef Name="分類Id" />
+          </Key>
+          <Property Name="分類Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="分類名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="店家登錄">
+          <Key>
+            <PropertyRef Name="登錄Id" />
+          </Key>
+          <Property Name="登錄Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="是登錄店家資料" Type="bit" Nullable="false" />
+          <Property Name="是廣告刊登" Type="bit" Nullable="false" />
+          <Property Name="店家名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="聯絡人" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="刊登電話" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="聯絡電話" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="推薦店家">
+          <Key>
+            <PropertyRef Name="店家Id" />
+          </Key>
+          <Property Name="店家Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="分類項Id" Type="int" Nullable="false" />
+          <Property Name="名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="電話" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="城市" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="鄉鎮市區" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="街道" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="特色介紹" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="圖片檔位置" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_推薦店家_分類項目">
+          <End Role="分類項目" Type="Self.分類項目" Multiplicity="1" />
+          <End Role="推薦店家" Type="Self.推薦店家" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="分類項目">
+              <PropertyRef Name="分類Id" />
+            </Principal>
+            <Dependent Role="推薦店家">
+              <PropertyRef Name="分類項Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MTWINModelStoreContainer">
+          <EntitySet Name="分類項目" EntityType="Self.分類項目" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="店家登錄" EntityType="Self.店家登錄" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="推薦店家" EntityType="Self.推薦店家" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_推薦店家_分類項目" Association="Self.FK_推薦店家_分類項目">
+            <End Role="分類項目" EntitySet="分類項目" />
+            <End Role="推薦店家" EntitySet="推薦店家" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MTWINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="分類項目">
+          <Key>
+            <PropertyRef Name="分類Id" />
+          </Key>
+          <Property Name="分類Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="推薦店家" Relationship="Self.FK_推薦店家_分類項目" FromRole="分類項目" ToRole="推薦店家" />
+        </EntityType>
+        <EntityType Name="店家登錄">
+          <Key>
+            <PropertyRef Name="登錄Id" />
+          </Key>
+          <Property Name="登錄Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="是登錄店家資料" Type="Boolean" Nullable="false" />
+          <Property Name="是廣告刊登" Type="Boolean" Nullable="false" />
+          <Property Name="店家名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="聯絡人" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="刊登電話" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="聯絡電話" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="推薦店家">
+          <Key>
+            <PropertyRef Name="店家Id" />
+          </Key>
+          <Property Name="店家Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="分類項Id" Type="Int32" Nullable="false" />
+          <Property Name="名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="電話" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="城市" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="鄉鎮市區" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="街道" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="特色介紹" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="圖片檔位置" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="分類項目" Relationship="Self.FK_推薦店家_分類項目" FromRole="推薦店家" ToRole="分類項目" />
+        </EntityType>
+        <Association Name="FK_推薦店家_分類項目">
+          <End Role="分類項目" Type="Self.分類項目" Multiplicity="1" />
+          <End Role="推薦店家" Type="Self.推薦店家" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="分類項目">
+              <PropertyRef Name="分類Id" />
+            </Principal>
+            <Dependent Role="推薦店家">
+              <PropertyRef Name="分類項Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MTWINEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="分類項目" EntityType="Self.分類項目" />
+          <EntitySet Name="店家登錄" EntityType="Self.店家登錄" />
+          <EntitySet Name="推薦店家" EntityType="Self.推薦店家" />
+          <AssociationSet Name="FK_推薦店家_分類項目" Association="Self.FK_推薦店家_分類項目">
+            <End Role="分類項目" EntitySet="分類項目" />
+            <End Role="推薦店家" EntitySet="推薦店家" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MTWINModelStoreContainer" CdmEntityContainer="MTWINEntities">
+          <EntitySetMapping Name="分類項目">
+            <EntityTypeMapping TypeName="MTWINModel.分類項目">
+              <MappingFragment StoreEntitySet="分類項目">
+                <ScalarProperty Name="分類Id" ColumnName="分類Id" />
+                <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="店家登錄">
+            <EntityTypeMapping TypeName="MTWINModel.店家登錄">
+              <MappingFragment StoreEntitySet="店家登錄">
+                <ScalarProperty Name="登錄Id" ColumnName="登錄Id" />
+                <ScalarProperty Name="是登錄店家資料" ColumnName="是登錄店家資料" />
+                <ScalarProperty Name="是廣告刊登" ColumnName="是廣告刊登" />
+                <ScalarProperty Name="店家名稱" ColumnName="店家名稱" />
+                <ScalarProperty Name="聯絡人" ColumnName="聯絡人" />
+                <ScalarProperty Name="刊登電話" ColumnName="刊登電話" />
+                <ScalarProperty Name="聯絡電話" ColumnName="聯絡電話" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="推薦店家">
+            <EntityTypeMapping TypeName="MTWINModel.推薦店家">
+              <MappingFragment StoreEntitySet="推薦店家">
+                <ScalarProperty Name="店家Id" ColumnName="店家Id" />
+                <ScalarProperty Name="分類項Id" ColumnName="分類項Id" />
+                <ScalarProperty Name="名稱" ColumnName="名稱" />
+                <ScalarProperty Name="電話" ColumnName="電話" />
+                <ScalarProperty Name="城市" ColumnName="城市" />
+                <ScalarProperty Name="鄉鎮市區" ColumnName="鄉鎮市區" />
+                <ScalarProperty Name="街道" ColumnName="街道" />
+                <ScalarProperty Name="特色介紹" ColumnName="特色介紹" />
+                <ScalarProperty Name="圖片檔位置" ColumnName="圖片檔位置" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

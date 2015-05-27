@@ -47,6 +47,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -234,6 +236,23 @@
     <Content Include="obj\Debug\edmxResourcesToEmbed\Models\MTWIN.csdl" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\Models\MTWIN.msl" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\Models\MTWIN.ssdl" />
+    <EntityDeploy Include="Models\MTWIN.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MTWIN.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MTWIN.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MTWIN.edmx</DependentUpon>
+      <LastGenOutput>MTWIN.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MTWIN.edmx.diagram">
+      <DependentUpon>MTWIN.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MTWIN.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MTWIN.edmx</DependentUpon>
+      <LastGenOutput>MTWIN.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -275,7 +294,9 @@
     <Content Include="Sql.Scripts\店家登錄table.sql" />
     <Content Include="Sql.Scripts\推薦店家table.sql" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -422,6 +443,30 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MTWIN.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MTWIN.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MTWIN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MTWIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MTWIN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MTWIN.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\分類項目.cs">
+      <DependentUpon>MTWIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\店家登錄.cs">
+      <DependentUpon>MTWIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\推薦店家.cs">
+      <DependentUpon>MTWIN.tt</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -459,6 +504,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Backend\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
