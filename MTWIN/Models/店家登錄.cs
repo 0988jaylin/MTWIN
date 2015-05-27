@@ -22,5 +22,7 @@ namespace MTWIN.Models
         public string 刊登電話 { get; set; }
         public string 聯絡電話 { get; set; }
         public string Email { get; set; }
+        public bool 已詳閱個資聲明 { get; set; }
+        public System.DateTime 建立時間 { get; set; }
     }
 }

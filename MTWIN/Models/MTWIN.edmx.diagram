@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="MTWINModel.店家登錄" Width="1.5" PointX="5.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MTWINModel.推薦店家" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="MTWINModel.FK_推薦店家_分類項目" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MTWINModel.首頁項目" Width="1.5" PointX="7.5" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

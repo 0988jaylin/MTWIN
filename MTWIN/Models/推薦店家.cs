@@ -23,6 +23,15 @@ namespace MTWIN.Models
         public string 街道 { get; set; }
         public string 特色介紹 { get; set; }
         public string 圖片檔位置 { get; set; }
+        public string 郵遞區號 { get; set; }
+        public string 連結網址 { get; set; }
+        public int 點擊數 { get; set; }
+        public int 排序編號 { get; set; }
+        public bool 是首頁輪播 { get; set; }
+        public string 建立者 { get; set; }
+        public System.DateTime 建立時間 { get; set; }
+        public string 修改者 { get; set; }
+        public System.DateTime 修改時間 { get; set; }
     
         public virtual 分類項目 分類項目 { get; set; }
     }
