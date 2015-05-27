@@ -9,9 +9,9 @@ using System.Data.Entity;
 using Microsoft.AspNet.FriendlyUrls.ModelBinding;
 using MTWIN.Models;
 
-namespace MTWIN.Backend.分類項目
+namespace MTWIN.Backend.推薦店家分類
 {
-    public partial class Details : System.Web.UI.Page
+    public partial class Delete : System.Web.UI.Page
     {
 		protected MTWIN.Models.MTWINEntities _db = new MTWIN.Models.MTWINEntities();
 
@@ -19,9 +19,26 @@ namespace MTWIN.Backend.分類項目
         {
         }
 
-        // This is the Select methd to selects a single 分類項目 item with the id
+        // This is the Delete methd to delete the selected 推薦店家分類 item
+        // USAGE: <asp:FormView DeleteMethod="DeleteItem">
+        public void DeleteItem(int 分類Id)
+        {
+            using (_db)
+            {
+                var item = _db.推薦店家分類.Find(分類Id);
+
+                if (item != null)
+                {
+                    _db.推薦店家分類.Remove(item);
+                    _db.SaveChanges();
+                }
+            }
+            Response.Redirect("../Default");
+        }
+
+        // This is the Select methd to selects a single 推薦店家分類 item with the id
         // USAGE: <asp:FormView SelectMethod="GetItem">
-        public MTWIN.Models.分類項目 GetItem([FriendlyUrlSegmentsAttribute(0)]int? 分類Id)
+        public MTWIN.Models.推薦店家分類 GetItem([FriendlyUrlSegmentsAttribute(0)]int? 分類Id)
         {
             if (分類Id == null)
             {
@@ -30,7 +47,7 @@ namespace MTWIN.Backend.分類項目
 
             using (_db)
             {
-	            return _db.分類項目.Where(m => m.分類Id == 分類Id).FirstOrDefault();
+	            return _db.推薦店家分類.Where(m => m.分類Id == 分類Id).FirstOrDefault();
             }
         }
 

@@ -93,6 +93,14 @@
 									<asp:DynamicControl runat="server" DataField="建立時間" ID="建立時間" Mode="ReadOnly" />
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-sm-2 text-right">
+									<strong>已刪除</strong>
+								</div>
+								<div class="col-sm-4">
+									<asp:DynamicControl runat="server" DataField="已刪除" ID="已刪除" Mode="ReadOnly" />
+								</div>
+							</div>
                  	<div class="row">
 					  &nbsp;
 					</div>

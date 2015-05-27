@@ -12,9 +12,9 @@ namespace MTWIN.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class 分類項目
+    public partial class 推薦店家分類
     {
-        public 分類項目()
+        public 推薦店家分類()
         {
             this.推薦店家 = new HashSet<推薦店家>();
         }

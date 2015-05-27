@@ -30,7 +30,7 @@ namespace MTWIN.Backend.推薦店家
 
             using (_db)
             {
-	            return _db.推薦店家.Where(m => m.店家Id == 店家Id).Include(m => m.分類項目).FirstOrDefault();
+	            return _db.推薦店家.Where(m => m.店家Id == 店家Id).Include(m => m.推薦店家分類).FirstOrDefault();
             }
         }
 

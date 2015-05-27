@@ -4,12 +4,12 @@ namespace MTWIN.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     
-    [MetadataType(typeof(分類項目MetaData))]
-    public partial class 分類項目
+    [MetadataType(typeof(推薦店家分類MetaData))]
+    public partial class 推薦店家分類
     {
     }
     
-    public partial class 分類項目MetaData
+    public partial class 推薦店家分類MetaData
     {
         [Required]
         public int 分類Id { get; set; }

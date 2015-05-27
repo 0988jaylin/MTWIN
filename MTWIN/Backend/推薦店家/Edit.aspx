@@ -15,18 +15,18 @@
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
 							<asp:DynamicControl Mode="Edit" 
 								DataField="分類項Id" 
-								DataTypeName="MTWIN.Models.分類項目" 
+								DataTypeName="MTWIN.Models.推薦店家分類" 
 								DataTextField="分類名稱" 
 								DataValueField="分類Id" 
 								UIHint="ForeignKey" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="名稱" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="電話" runat="server" />
+						    <asp:DynamicControl Mode="Edit" DataField="郵遞區號" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="城市" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="鄉鎮市區" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="街道" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="特色介紹" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="圖片檔位置" runat="server" />
-						    <asp:DynamicControl Mode="Edit" DataField="郵遞區號" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="連結網址" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="點擊數" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="排序編號" runat="server" />
@@ -35,6 +35,7 @@
 						    <asp:DynamicControl Mode="Edit" DataField="建立時間" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="修改者" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="修改時間" runat="server" />
+						    <asp:DynamicControl Mode="Edit" DataField="已刪除" runat="server" />
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
 							<asp:Button runat="server" ID="UpdateButton" CommandName="Update" Text="Update" CssClass="btn btn-primary" />

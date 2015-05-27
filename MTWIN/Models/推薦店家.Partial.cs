@@ -57,14 +57,14 @@ namespace MTWIN.Models
         
         [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
         public string 建立者 { get; set; }
-        [Required]
-        public System.DateTime 建立時間 { get; set; }
+        public Nullable<System.DateTime> 建立時間 { get; set; }
         
         [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
         public string 修改者 { get; set; }
+        public Nullable<System.DateTime> 修改時間 { get; set; }
         [Required]
-        public System.DateTime 修改時間 { get; set; }
+        public bool 已刪除 { get; set; }
     
-        public virtual 分類項目 分類項目 { get; set; }
+        public virtual 推薦店家分類 推薦店家分類 { get; set; }
     }
 }

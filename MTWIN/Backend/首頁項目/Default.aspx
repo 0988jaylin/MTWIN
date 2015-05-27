@@ -21,9 +21,6 @@
 								<asp:LinkButton Text="首頁項目Id" CommandName="Sort" CommandArgument="首頁項目Id" runat="Server" />
 							</th>
                             <th>
-								<asp:LinkButton Text="項目類型" CommandName="Sort" CommandArgument="項目類型" runat="Server" />
-							</th>
-                            <th>
 								<asp:LinkButton Text="圖檔替代名稱" CommandName="Sort" CommandArgument="圖檔替代名稱" runat="Server" />
 							</th>
                             <th>
@@ -53,6 +50,12 @@
                             <th>
 								<asp:LinkButton Text="修改時間" CommandName="Sort" CommandArgument="修改時間" runat="Server" />
 							</th>
+                            <th>
+								<asp:LinkButton Text="已刪除" CommandName="Sort" CommandArgument="已刪除" runat="Server" />
+							</th>
+                            <th>
+								<asp:LinkButton Text="項目類型Id" CommandName="Sort" CommandArgument="項目類型Id" runat="Server" />
+							</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -72,9 +75,6 @@
                 <tr>
 							<td>
 								<asp:DynamicControl runat="server" DataField="首頁項目Id" ID="首頁項目Id" Mode="ReadOnly" />
-							</td>
-							<td>
-								<asp:DynamicControl runat="server" DataField="項目類型" ID="項目類型" Mode="ReadOnly" />
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="圖檔替代名稱" ID="圖檔替代名稱" Mode="ReadOnly" />
@@ -105,6 +105,12 @@
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="修改時間" ID="修改時間" Mode="ReadOnly" />
+							</td>
+							<td>
+								<asp:DynamicControl runat="server" DataField="已刪除" ID="已刪除" Mode="ReadOnly" />
+							</td>
+							<td>
+								<%#: Item.首頁項目分類 != null ? Item.首頁項目分類.分類名稱 : "" %>
 							</td>
                     <td>
 					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/首頁項目/Details", Item.首頁項目Id) %>' Text="Details" /> | 

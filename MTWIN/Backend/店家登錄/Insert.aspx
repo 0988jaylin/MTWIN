@@ -19,6 +19,7 @@
 						    <asp:DynamicControl Mode="Insert" DataField="Email" runat="server" />
 						    <asp:DynamicControl Mode="Insert" DataField="已詳閱個資聲明" runat="server" />
 						    <asp:DynamicControl Mode="Insert" DataField="建立時間" runat="server" />
+						    <asp:DynamicControl Mode="Insert" DataField="已刪除" runat="server" />
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <asp:Button runat="server" ID="InsertButton" CommandName="Insert" Text="Insert" CssClass="btn btn-primary" />

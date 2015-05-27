@@ -30,7 +30,7 @@ namespace MTWIN.Backend.首頁項目
 
             using (_db)
             {
-	            return _db.首頁項目.Where(m => m.首頁項目Id == 首頁項目Id).FirstOrDefault();
+	            return _db.首頁項目.Where(m => m.首頁項目Id == 首頁項目Id).Include(m => m.首頁項目分類).FirstOrDefault();
             }
         }
 

@@ -4,14 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MTWIN.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="分類項目">
-          <Key>
-            <PropertyRef Name="分類Id" />
-          </Key>
-          <Property Name="分類Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="分類名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
+    <Schema Namespace="MTWIN.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="店家登錄">
           <Key>
             <PropertyRef Name="登錄Id" />
@@ -25,14 +18,15 @@
           <Property Name="聯絡電話" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" />
           <Property Name="已詳閱個資聲明" Type="bit" Nullable="false" />
-          <Property Name="建立時間" Type="datetime" Nullable="false" />
+          <Property Name="建立時間" Type="datetime" />
+          <Property Name="已刪除" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="首頁項目">
           <Key>
             <PropertyRef Name="首頁項目Id" />
           </Key>
           <Property Name="首頁項目Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="項目類型" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="項目類型Id" Type="int" Nullable="false" />
           <Property Name="圖檔替代名稱" Type="nvarchar" MaxLength="500" />
           <Property Name="圖檔提示文字" Type="nvarchar" MaxLength="500" />
           <Property Name="圖片檔位置" Type="nvarchar" MaxLength="1000" />
@@ -40,9 +34,17 @@
           <Property Name="總曝光數" Type="int" Nullable="false" />
           <Property Name="總點擊次數" Type="int" Nullable="false" />
           <Property Name="建立者" Type="nvarchar" MaxLength="50" />
-          <Property Name="建立時間" Type="datetime" Nullable="false" />
+          <Property Name="建立時間" Type="datetime" />
           <Property Name="修改者" Type="nvarchar" MaxLength="50" />
-          <Property Name="修改時間" Type="datetime" Nullable="false" />
+          <Property Name="修改時間" Type="datetime" />
+          <Property Name="已刪除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="首頁項目分類">
+          <Key>
+            <PropertyRef Name="分類Id" />
+          </Key>
+          <Property Name="分類Id" Type="int" Nullable="false" />
+          <Property Name="分類名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="推薦店家">
           <Key>
@@ -63,15 +65,35 @@
           <Property Name="排序編號" Type="int" Nullable="false" />
           <Property Name="是首頁輪播" Type="bit" Nullable="false" />
           <Property Name="建立者" Type="nvarchar" MaxLength="50" />
-          <Property Name="建立時間" Type="datetime" Nullable="false" />
+          <Property Name="建立時間" Type="datetime" />
           <Property Name="修改者" Type="nvarchar" MaxLength="50" />
-          <Property Name="修改時間" Type="datetime" Nullable="false" />
+          <Property Name="修改時間" Type="datetime" />
+          <Property Name="已刪除" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK_推薦店家_分類項目">
-          <End Role="分類項目" Type="Self.分類項目" Multiplicity="1" />
+        <EntityType Name="推薦店家分類">
+          <Key>
+            <PropertyRef Name="分類Id" />
+          </Key>
+          <Property Name="分類Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="分類名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_首頁項目_首頁項目分類">
+          <End Role="首頁項目分類" Type="Self.首頁項目分類" Multiplicity="1" />
+          <End Role="首頁項目" Type="Self.首頁項目" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="首頁項目分類">
+              <PropertyRef Name="分類Id" />
+            </Principal>
+            <Dependent Role="首頁項目">
+              <PropertyRef Name="項目類型Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_推薦店家_推薦店家分類">
+          <End Role="推薦店家分類" Type="Self.推薦店家分類" Multiplicity="1" />
           <End Role="推薦店家" Type="Self.推薦店家" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="分類項目">
+            <Principal Role="推薦店家分類">
               <PropertyRef Name="分類Id" />
             </Principal>
             <Dependent Role="推薦店家">
@@ -80,28 +102,24 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MTWINStoreContainer">
-          <EntitySet Name="分類項目" EntityType="Self.分類項目" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="店家登錄" EntityType="Self.店家登錄" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="首頁項目" EntityType="Self.首頁項目" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="首頁項目分類" EntityType="Self.首頁項目分類" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="推薦店家" EntityType="Self.推薦店家" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_推薦店家_分類項目" Association="Self.FK_推薦店家_分類項目">
-            <End Role="分類項目" EntitySet="分類項目" />
+          <EntitySet Name="推薦店家分類" EntityType="Self.推薦店家分類" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_首頁項目_首頁項目分類" Association="Self.FK_首頁項目_首頁項目分類">
+            <End Role="首頁項目分類" EntitySet="首頁項目分類" />
+            <End Role="首頁項目" EntitySet="首頁項目" />
+          </AssociationSet>
+          <AssociationSet Name="FK_推薦店家_推薦店家分類" Association="Self.FK_推薦店家_推薦店家分類">
+            <End Role="推薦店家分類" EntitySet="推薦店家分類" />
             <End Role="推薦店家" EntitySet="推薦店家" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MTWIN" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="分類項目">
-          <Key>
-            <PropertyRef Name="分類Id" />
-          </Key>
-          <Property Name="分類Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="推薦店家" Relationship="Self.FK_推薦店家_分類項目" FromRole="分類項目" ToRole="推薦店家" />
-        </EntityType>
         <EntityType Name="店家登錄">
           <Key>
             <PropertyRef Name="登錄Id" />
@@ -115,14 +133,14 @@
           <Property Name="聯絡電話" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="已詳閱個資聲明" Type="Boolean" Nullable="false" />
-          <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="建立時間" Type="DateTime" Precision="3" />
+          <Property Name="已刪除" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="首頁項目">
           <Key>
             <PropertyRef Name="首頁項目Id" />
           </Key>
           <Property Name="首頁項目Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="項目類型" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="圖檔替代名稱" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="圖檔提示文字" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="圖片檔位置" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
@@ -130,9 +148,12 @@
           <Property Name="總曝光數" Type="Int32" Nullable="false" />
           <Property Name="總點擊次數" Type="Int32" Nullable="false" />
           <Property Name="建立者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="建立時間" Type="DateTime" Precision="3" />
           <Property Name="修改者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="修改時間" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="修改時間" Type="DateTime" Precision="3" />
+          <Property Name="已刪除" Type="Boolean" Nullable="false" />
+          <Property Name="項目類型Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="首頁項目分類" Relationship="MTWIN.FK_首頁項目_首頁項目分類" FromRole="首頁項目" ToRole="首頁項目分類" />
         </EntityType>
         <EntityType Name="推薦店家">
           <Key>
@@ -153,16 +174,60 @@
           <Property Name="排序編號" Type="Int32" Nullable="false" />
           <Property Name="是首頁輪播" Type="Boolean" Nullable="false" />
           <Property Name="建立者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="建立時間" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="建立時間" Type="DateTime" Precision="3" />
           <Property Name="修改者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="修改時間" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="分類項目" Relationship="Self.FK_推薦店家_分類項目" FromRole="推薦店家" ToRole="分類項目" />
+          <Property Name="修改時間" Type="DateTime" Precision="3" />
+          <Property Name="已刪除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="推薦店家分類" Relationship="MTWIN.FK_推薦店家_推薦店家分類" FromRole="推薦店家" ToRole="推薦店家分類" />
         </EntityType>
-        <Association Name="FK_推薦店家_分類項目">
-          <End Role="分類項目" Type="Self.分類項目" Multiplicity="1" />
-          <End Role="推薦店家" Type="Self.推薦店家" Multiplicity="*" />
+        <EntityContainer Name="MTWINEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="店家登錄" EntityType="Self.店家登錄" />
+          <EntitySet Name="首頁項目" EntityType="Self.首頁項目" />
+          <EntitySet Name="推薦店家" EntityType="Self.推薦店家" />
+          <EntitySet Name="首頁項目分類" EntityType="MTWIN.首頁項目分類" />
+          <EntitySet Name="推薦店家分類" EntityType="MTWIN.推薦店家分類" />
+          <AssociationSet Name="FK_首頁項目_首頁項目分類" Association="MTWIN.FK_首頁項目_首頁項目分類">
+            <End Role="首頁項目分類" EntitySet="首頁項目分類" />
+            <End Role="首頁項目" EntitySet="首頁項目" />
+          </AssociationSet>
+          <AssociationSet Name="FK_推薦店家_推薦店家分類" Association="MTWIN.FK_推薦店家_推薦店家分類">
+            <End Role="推薦店家分類" EntitySet="推薦店家分類" />
+            <End Role="推薦店家" EntitySet="推薦店家" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="首頁項目分類">
+          <Key>
+            <PropertyRef Name="分類Id" />
+          </Key>
+          <Property Name="分類Id" Type="Int32" Nullable="false" />
+          <Property Name="分類名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="首頁項目" Relationship="MTWIN.FK_首頁項目_首頁項目分類" FromRole="首頁項目分類" ToRole="首頁項目" />
+        </EntityType>
+        <EntityType Name="推薦店家分類">
+          <Key>
+            <PropertyRef Name="分類Id" />
+          </Key>
+          <Property Name="分類Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="分類名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="推薦店家" Relationship="MTWIN.FK_推薦店家_推薦店家分類" FromRole="推薦店家分類" ToRole="推薦店家" />
+        </EntityType>
+        <Association Name="FK_首頁項目_首頁項目分類">
+          <End Type="MTWIN.首頁項目分類" Role="首頁項目分類" Multiplicity="1" />
+          <End Type="MTWIN.首頁項目" Role="首頁項目" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="分類項目">
+            <Principal Role="首頁項目分類">
+              <PropertyRef Name="分類Id" />
+            </Principal>
+            <Dependent Role="首頁項目">
+              <PropertyRef Name="項目類型Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_推薦店家_推薦店家分類">
+          <End Type="MTWIN.推薦店家分類" Role="推薦店家分類" Multiplicity="1" />
+          <End Type="MTWIN.推薦店家" Role="推薦店家" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="推薦店家分類">
               <PropertyRef Name="分類Id" />
             </Principal>
             <Dependent Role="推薦店家">
@@ -170,33 +235,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MTWINEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="分類項目" EntityType="Self.分類項目" />
-          <EntitySet Name="店家登錄" EntityType="Self.店家登錄" />
-          <EntitySet Name="首頁項目" EntityType="Self.首頁項目" />
-          <EntitySet Name="推薦店家" EntityType="Self.推薦店家" />
-          <AssociationSet Name="FK_推薦店家_分類項目" Association="Self.FK_推薦店家_分類項目">
-            <End Role="分類項目" EntitySet="分類項目" />
-            <End Role="推薦店家" EntitySet="推薦店家" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MTWINStoreContainer" CdmEntityContainer="MTWINEntities">
-          <EntitySetMapping Name="分類項目">
-            <EntityTypeMapping TypeName="MTWIN.分類項目">
-              <MappingFragment StoreEntitySet="分類項目">
-                <ScalarProperty Name="分類Id" ColumnName="分類Id" />
-                <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="店家登錄">
             <EntityTypeMapping TypeName="MTWIN.店家登錄">
               <MappingFragment StoreEntitySet="店家登錄">
+                <ScalarProperty Name="已刪除" ColumnName="已刪除" />
                 <ScalarProperty Name="登錄Id" ColumnName="登錄Id" />
                 <ScalarProperty Name="是登錄店家資料" ColumnName="是登錄店家資料" />
                 <ScalarProperty Name="是廣告刊登" ColumnName="是廣告刊登" />
@@ -213,8 +261,9 @@
           <EntitySetMapping Name="首頁項目">
             <EntityTypeMapping TypeName="MTWIN.首頁項目">
               <MappingFragment StoreEntitySet="首頁項目">
+                <ScalarProperty Name="項目類型Id" ColumnName="項目類型Id" />
+                <ScalarProperty Name="已刪除" ColumnName="已刪除" />
                 <ScalarProperty Name="首頁項目Id" ColumnName="首頁項目Id" />
-                <ScalarProperty Name="項目類型" ColumnName="項目類型" />
                 <ScalarProperty Name="圖檔替代名稱" ColumnName="圖檔替代名稱" />
                 <ScalarProperty Name="圖檔提示文字" ColumnName="圖檔提示文字" />
                 <ScalarProperty Name="圖片檔位置" ColumnName="圖片檔位置" />
@@ -231,6 +280,7 @@
           <EntitySetMapping Name="推薦店家">
             <EntityTypeMapping TypeName="MTWIN.推薦店家">
               <MappingFragment StoreEntitySet="推薦店家">
+                <ScalarProperty Name="已刪除" ColumnName="已刪除" />
                 <ScalarProperty Name="店家Id" ColumnName="店家Id" />
                 <ScalarProperty Name="分類項Id" ColumnName="分類項Id" />
                 <ScalarProperty Name="名稱" ColumnName="名稱" />
@@ -249,6 +299,22 @@
                 <ScalarProperty Name="建立時間" ColumnName="建立時間" />
                 <ScalarProperty Name="修改者" ColumnName="修改者" />
                 <ScalarProperty Name="修改時間" ColumnName="修改時間" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="首頁項目分類">
+            <EntityTypeMapping TypeName="MTWIN.首頁項目分類">
+              <MappingFragment StoreEntitySet="首頁項目分類">
+                <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+                <ScalarProperty Name="分類Id" ColumnName="分類Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="推薦店家分類">
+            <EntityTypeMapping TypeName="MTWIN.推薦店家分類">
+              <MappingFragment StoreEntitySet="推薦店家分類">
+                <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+                <ScalarProperty Name="分類Id" ColumnName="分類Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

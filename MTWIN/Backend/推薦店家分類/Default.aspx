@@ -1,17 +1,17 @@
-﻿<%@ Page Title="分類項目List" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Default.aspx.cs" Inherits="MTWIN.Backend.分類項目.Default" %>
+﻿<%@ Page Title="推薦店家分類List" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Default.aspx.cs" Inherits="MTWIN.Backend.推薦店家分類.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
-    <h2>分類項目 List</h2>
+    <h2>推薦店家分類 List</h2>
     <p>
         <asp:HyperLink runat="server" NavigateUrl="Insert" Text="Create new" />
     </p>
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="分類Id" 
-			ItemType="MTWIN.Models.分類項目"
+			ItemType="MTWIN.Models.推薦店家分類"
             SelectMethod="GetData">
             <EmptyDataTemplate>
-                There are no entries found for 分類項目
+                There are no entries found for 推薦店家分類
             </EmptyDataTemplate>
             <LayoutTemplate>
                 <table class="table">
@@ -47,9 +47,9 @@
 								<asp:DynamicControl runat="server" DataField="分類名稱" ID="分類名稱" Mode="ReadOnly" />
 							</td>
                     <td>
-					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/分類項目/Details", Item.分類Id) %>' Text="Details" /> | 
-					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/分類項目/Edit", Item.分類Id) %>' Text="Edit" /> | 
-                        <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/分類項目/Delete", Item.分類Id) %>' Text="Delete" />
+					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/推薦店家分類/Details", Item.分類Id) %>' Text="Details" /> | 
+					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/推薦店家分類/Edit", Item.分類Id) %>' Text="Edit" /> | 
+                        <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/推薦店家分類/Delete", Item.分類Id) %>' Text="Delete" />
                     </td>
                 </tr>
             </ItemTemplate>

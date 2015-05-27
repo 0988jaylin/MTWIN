@@ -15,7 +15,6 @@ namespace MTWIN.Models
     public partial class 首頁項目
     {
         public int 首頁項目Id { get; set; }
-        public string 項目類型 { get; set; }
         public string 圖檔替代名稱 { get; set; }
         public string 圖檔提示文字 { get; set; }
         public string 圖片檔位置 { get; set; }
@@ -23,8 +22,12 @@ namespace MTWIN.Models
         public int 總曝光數 { get; set; }
         public int 總點擊次數 { get; set; }
         public string 建立者 { get; set; }
-        public System.DateTime 建立時間 { get; set; }
+        public Nullable<System.DateTime> 建立時間 { get; set; }
         public string 修改者 { get; set; }
-        public System.DateTime 修改時間 { get; set; }
+        public Nullable<System.DateTime> 修改時間 { get; set; }
+        public bool 已刪除 { get; set; }
+        public int 項目類型Id { get; set; }
+    
+        public virtual 首頁項目分類 首頁項目分類 { get; set; }
     }
 }

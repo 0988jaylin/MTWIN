@@ -166,11 +166,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Backend\分類項目\Default.aspx" />
-    <Content Include="Backend\分類項目\Delete.aspx" />
-    <Content Include="Backend\分類項目\Details.aspx" />
-    <Content Include="Backend\分類項目\Edit.aspx" />
-    <Content Include="Backend\分類項目\Insert.aspx" />
     <Content Include="Backend\店家登錄\Default.aspx" />
     <Content Include="Backend\店家登錄\Delete.aspx" />
     <Content Include="Backend\店家登錄\Details.aspx" />
@@ -181,11 +176,21 @@
     <Content Include="Backend\推薦店家\Details.aspx" />
     <Content Include="Backend\推薦店家\Edit.aspx" />
     <Content Include="Backend\推薦店家\Insert.aspx" />
+    <Content Include="Backend\推薦店家分類\Default.aspx" />
+    <Content Include="Backend\推薦店家分類\Delete.aspx" />
+    <Content Include="Backend\推薦店家分類\Details.aspx" />
+    <Content Include="Backend\推薦店家分類\Edit.aspx" />
+    <Content Include="Backend\推薦店家分類\Insert.aspx" />
     <Content Include="Backend\首頁項目\Default.aspx" />
     <Content Include="Backend\首頁項目\Delete.aspx" />
     <Content Include="Backend\首頁項目\Details.aspx" />
     <Content Include="Backend\首頁項目\Edit.aspx" />
     <Content Include="Backend\首頁項目\Insert.aspx" />
+    <Content Include="Backend\首頁項目分類\Default.aspx" />
+    <Content Include="Backend\首頁項目分類\Delete.aspx" />
+    <Content Include="Backend\首頁項目分類\Details.aspx" />
+    <Content Include="Backend\首頁項目分類\Edit.aspx" />
+    <Content Include="Backend\首頁項目分類\Insert.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -412,41 +417,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Backend\分類項目\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Backend\分類項目\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Backend\分類項目\Delete.aspx.cs">
-      <DependentUpon>Delete.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Backend\分類項目\Delete.aspx.designer.cs">
-      <DependentUpon>Delete.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Backend\分類項目\Details.aspx.cs">
-      <DependentUpon>Details.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Backend\分類項目\Details.aspx.designer.cs">
-      <DependentUpon>Details.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Backend\分類項目\Edit.aspx.cs">
-      <DependentUpon>Edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Backend\分類項目\Edit.aspx.designer.cs">
-      <DependentUpon>Edit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Backend\分類項目\Insert.aspx.cs">
-      <DependentUpon>Insert.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Backend\分類項目\Insert.aspx.designer.cs">
-      <DependentUpon>Insert.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Backend\店家登錄\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +487,41 @@
     <Compile Include="Backend\推薦店家\Insert.aspx.designer.cs">
       <DependentUpon>Insert.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\推薦店家分類\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\推薦店家分類\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\首頁項目\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,6 +555,41 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Backend\首頁項目\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\首頁項目分類\Insert.aspx.designer.cs">
       <DependentUpon>Insert.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
@@ -695,6 +735,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Models\EFGeneratePartialClass.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -736,15 +779,6 @@
     <Compile Include="Models\RepositoryIQueryableExtensions.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\分類項目.cs">
-      <DependentUpon>MTWIN.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\分類項目.Partial.cs">
-      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\分類項目Repository.cs">
-      <DependentUpon>IRepository.EF6.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\店家登錄.cs">
       <DependentUpon>MTWIN.tt</DependentUpon>
     </Compile>
@@ -763,6 +797,15 @@
     <Compile Include="Models\推薦店家Repository.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\推薦店家分類.cs">
+      <DependentUpon>MTWIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\推薦店家分類.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\推薦店家分類Repository.cs">
+      <DependentUpon>IRepository.EF6.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\首頁項目.cs">
       <DependentUpon>MTWIN.tt</DependentUpon>
     </Compile>
@@ -770,6 +813,15 @@
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\首頁項目Repository.cs">
+      <DependentUpon>IRepository.EF6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\首頁項目分類.cs">
+      <DependentUpon>MTWIN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\首頁項目分類.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\首頁項目分類Repository.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

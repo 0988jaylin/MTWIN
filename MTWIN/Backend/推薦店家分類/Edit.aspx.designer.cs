@@ -8,8 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MTWIN.Backend.店家登錄 {
-    public partial class Default {
+namespace MTWIN.Backend.推薦店家分類 {
+    public partial class Edit {
+        
         /// <summary>
         /// form1 control.
         /// </summary>

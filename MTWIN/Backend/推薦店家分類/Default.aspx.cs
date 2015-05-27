@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.Entity;
 using MTWIN.Models;
 
-namespace MTWIN.Backend.分類項目
+namespace MTWIN.Backend.推薦店家分類
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -17,11 +17,11 @@ namespace MTWIN.Backend.分類項目
         {
         }
 
-        // Model binding method to get List of 分類項目 entries
+        // Model binding method to get List of 推薦店家分類 entries
         // USAGE: <asp:ListView SelectMethod="GetData">
-        public IQueryable<MTWIN.Models.分類項目> GetData()
+        public IQueryable<MTWIN.Models.推薦店家分類> GetData()
         {
-            return _db.分類項目;
+            return _db.推薦店家分類;
         }
     }
 }

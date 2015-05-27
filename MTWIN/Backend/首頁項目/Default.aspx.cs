@@ -21,7 +21,7 @@ namespace MTWIN.Backend.首頁項目
         // USAGE: <asp:ListView SelectMethod="GetData">
         public IQueryable<MTWIN.Models.首頁項目> GetData()
         {
-            return _db.首頁項目;
+            return _db.首頁項目.Include(m => m.首頁項目分類);
         }
     }
 }

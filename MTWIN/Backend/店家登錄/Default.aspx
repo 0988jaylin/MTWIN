@@ -47,6 +47,9 @@
                             <th>
 								<asp:LinkButton Text="建立時間" CommandName="Sort" CommandArgument="建立時間" runat="Server" />
 							</th>
+                            <th>
+								<asp:LinkButton Text="已刪除" CommandName="Sort" CommandArgument="已刪除" runat="Server" />
+							</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -93,6 +96,9 @@
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="建立時間" ID="建立時間" Mode="ReadOnly" />
+							</td>
+							<td>
+								<asp:DynamicControl runat="server" DataField="已刪除" ID="已刪除" Mode="ReadOnly" />
 							</td>
                     <td>
 					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/店家登錄/Details", Item.登錄Id) %>' Text="Details" /> | 

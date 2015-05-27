@@ -22,6 +22,7 @@
 						    <asp:DynamicControl Mode="Edit" DataField="Email" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="已詳閱個資聲明" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="建立時間" runat="server" />
+						    <asp:DynamicControl Mode="Edit" DataField="已刪除" runat="server" />
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
 							<asp:Button runat="server" ID="UpdateButton" CommandName="Update" Text="Update" CssClass="btn btn-primary" />

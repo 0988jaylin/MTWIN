@@ -1,18 +1,18 @@
-﻿<%@ Page Title="分類項目Delete" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Delete.aspx.cs" Inherits="MTWIN.Backend.分類項目.Delete" %>
+﻿<%@ Page Title="推薦店家分類Delete" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Delete.aspx.cs" Inherits="MTWIN.Backend.推薦店家分類.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
-        <h3>Are you sure want to delete this 分類項目?</h3>
+        <h3>Are you sure want to delete this 推薦店家分類?</h3>
         <asp:FormView runat="server"
-            ItemType="MTWIN.Models.分類項目" DataKeyNames="分類Id"
+            ItemType="MTWIN.Models.推薦店家分類" DataKeyNames="分類Id"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
-                Cannot find the 分類項目 with 分類Id <%: Request.QueryString["分類Id"] %>
+                Cannot find the 推薦店家分類 with 分類Id <%: Request.QueryString["分類Id"] %>
             </EmptyDataTemplate>
             <ItemTemplate>
                 <fieldset class="form-horizontal">
-                    <legend>Delete 分類項目</legend>
+                    <legend>Delete 推薦店家分類</legend>
 							<div class="row">
 								<div class="col-sm-2 text-right">
 									<strong>分類Id</strong>

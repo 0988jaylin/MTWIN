@@ -23,14 +23,6 @@
 							</div>
 							<div class="row">
 								<div class="col-sm-2 text-right">
-									<strong>項目類型</strong>
-								</div>
-								<div class="col-sm-4">
-									<asp:DynamicControl runat="server" DataField="項目類型" ID="項目類型" Mode="ReadOnly" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-2 text-right">
 									<strong>圖檔替代名稱</strong>
 								</div>
 								<div class="col-sm-4">
@@ -107,6 +99,22 @@
 								</div>
 								<div class="col-sm-4">
 									<asp:DynamicControl runat="server" DataField="修改時間" ID="修改時間" Mode="ReadOnly" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-2 text-right">
+									<strong>已刪除</strong>
+								</div>
+								<div class="col-sm-4">
+									<asp:DynamicControl runat="server" DataField="已刪除" ID="已刪除" Mode="ReadOnly" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-2 text-right">
+									<strong>項目類型Id</strong>
+								</div>
+								<div class="col-sm-4">
+									<%#: Item.首頁項目分類 != null ? Item.首頁項目分類.分類名稱 : "" %>
 								</div>
 							</div>
                  	<div class="row">

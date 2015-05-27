@@ -29,10 +29,11 @@ namespace MTWIN.Models
         public int 排序編號 { get; set; }
         public bool 是首頁輪播 { get; set; }
         public string 建立者 { get; set; }
-        public System.DateTime 建立時間 { get; set; }
+        public Nullable<System.DateTime> 建立時間 { get; set; }
         public string 修改者 { get; set; }
-        public System.DateTime 修改時間 { get; set; }
+        public Nullable<System.DateTime> 修改時間 { get; set; }
+        public bool 已刪除 { get; set; }
     
-        public virtual 分類項目 分類項目 { get; set; }
+        public virtual 推薦店家分類 推薦店家分類 { get; set; }
     }
 }

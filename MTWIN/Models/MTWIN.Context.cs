@@ -25,9 +25,10 @@ namespace MTWIN.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<分類項目> 分類項目 { get; set; }
         public virtual DbSet<店家登錄> 店家登錄 { get; set; }
         public virtual DbSet<首頁項目> 首頁項目 { get; set; }
         public virtual DbSet<推薦店家> 推薦店家 { get; set; }
+        public virtual DbSet<首頁項目分類> 首頁項目分類 { get; set; }
+        public virtual DbSet<推薦店家分類> 推薦店家分類 { get; set; }
     }
 }

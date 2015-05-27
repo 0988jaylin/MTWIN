@@ -38,7 +38,8 @@ namespace MTWIN.Models
         public string Email { get; set; }
         [Required]
         public bool 已詳閱個資聲明 { get; set; }
+        public Nullable<System.DateTime> 建立時間 { get; set; }
         [Required]
-        public System.DateTime 建立時間 { get; set; }
+        public bool 已刪除 { get; set; }
     }
 }

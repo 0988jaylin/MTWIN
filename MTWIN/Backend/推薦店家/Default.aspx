@@ -30,6 +30,9 @@
 								<asp:LinkButton Text="電話" CommandName="Sort" CommandArgument="電話" runat="Server" />
 							</th>
                             <th>
+								<asp:LinkButton Text="郵遞區號" CommandName="Sort" CommandArgument="郵遞區號" runat="Server" />
+							</th>
+                            <th>
 								<asp:LinkButton Text="城市" CommandName="Sort" CommandArgument="城市" runat="Server" />
 							</th>
                             <th>
@@ -43,9 +46,6 @@
 							</th>
                             <th>
 								<asp:LinkButton Text="圖片檔位置" CommandName="Sort" CommandArgument="圖片檔位置" runat="Server" />
-							</th>
-                            <th>
-								<asp:LinkButton Text="郵遞區號" CommandName="Sort" CommandArgument="郵遞區號" runat="Server" />
 							</th>
                             <th>
 								<asp:LinkButton Text="連結網址" CommandName="Sort" CommandArgument="連結網址" runat="Server" />
@@ -71,6 +71,9 @@
                             <th>
 								<asp:LinkButton Text="修改時間" CommandName="Sort" CommandArgument="修改時間" runat="Server" />
 							</th>
+                            <th>
+								<asp:LinkButton Text="已刪除" CommandName="Sort" CommandArgument="已刪除" runat="Server" />
+							</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -92,13 +95,16 @@
 								<asp:DynamicControl runat="server" DataField="店家Id" ID="店家Id" Mode="ReadOnly" />
 							</td>
 							<td>
-								<%#: Item.分類項目 != null ? Item.分類項目.分類名稱 : "" %>
+								<%#: Item.推薦店家分類 != null ? Item.推薦店家分類.分類名稱 : "" %>
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="名稱" ID="名稱" Mode="ReadOnly" />
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="電話" ID="電話" Mode="ReadOnly" />
+							</td>
+							<td>
+								<asp:DynamicControl runat="server" DataField="郵遞區號" ID="郵遞區號" Mode="ReadOnly" />
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="城市" ID="城市" Mode="ReadOnly" />
@@ -114,9 +120,6 @@
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="圖片檔位置" ID="圖片檔位置" Mode="ReadOnly" />
-							</td>
-							<td>
-								<asp:DynamicControl runat="server" DataField="郵遞區號" ID="郵遞區號" Mode="ReadOnly" />
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="連結網址" ID="連結網址" Mode="ReadOnly" />
@@ -141,6 +144,9 @@
 							</td>
 							<td>
 								<asp:DynamicControl runat="server" DataField="修改時間" ID="修改時間" Mode="ReadOnly" />
+							</td>
+							<td>
+								<asp:DynamicControl runat="server" DataField="已刪除" ID="已刪除" Mode="ReadOnly" />
 							</td>
                     <td>
 					    <asp:HyperLink runat="server" NavigateUrl='<%# FriendlyUrl.Href("~/Backend/推薦店家/Details", Item.店家Id) %>' Text="Details" /> | 

@@ -13,7 +13,6 @@
                 <fieldset class="form-horizontal">
                     <legend>Edit 首頁項目</legend>
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
-						    <asp:DynamicControl Mode="Edit" DataField="項目類型" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="圖檔替代名稱" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="圖檔提示文字" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="圖片檔位置" runat="server" />
@@ -24,6 +23,13 @@
 						    <asp:DynamicControl Mode="Edit" DataField="建立時間" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="修改者" runat="server" />
 						    <asp:DynamicControl Mode="Edit" DataField="修改時間" runat="server" />
+						    <asp:DynamicControl Mode="Edit" DataField="已刪除" runat="server" />
+							<asp:DynamicControl Mode="Edit" 
+								DataField="項目類型Id" 
+								DataTypeName="MTWIN.Models.首頁項目分類" 
+								DataTextField="分類名稱" 
+								DataValueField="分類Id" 
+								UIHint="ForeignKey" runat="server" />
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
 							<asp:Button runat="server" ID="UpdateButton" CommandName="Update" Text="Update" CssClass="btn btn-primary" />

@@ -1,18 +1,18 @@
-﻿<%@ Page Title="分類項目 Details" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Details.aspx.cs" Inherits="MTWIN.Backend.分類項目.Details" %>
+﻿<%@ Page Title="推薦店家分類 Details" Language="C#" MasterPageFile="~/Site.Backend.Master" CodeBehind="Details.aspx.cs" Inherits="MTWIN.Backend.推薦店家分類.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="MTWIN.Models.分類項目" DataKeyNames="分類Id"
+            ItemType="MTWIN.Models.推薦店家分類" DataKeyNames="分類Id"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
-                Cannot find the 分類項目 with 分類Id <%: Request.QueryString["分類Id"] %>
+                Cannot find the 推薦店家分類 with 分類Id <%: Request.QueryString["分類Id"] %>
             </EmptyDataTemplate>
             <ItemTemplate>
                 <fieldset class="form-horizontal">
-                    <legend>分類項目 Details</legend>
+                    <legend>推薦店家分類 Details</legend>
 							<div class="row">
 								<div class="col-sm-2 text-right">
 									<strong>分類Id</strong>

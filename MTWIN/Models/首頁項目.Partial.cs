@@ -14,10 +14,6 @@ namespace MTWIN.Models
         [Required]
         public int 首頁項目Id { get; set; }
         
-        [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
-        [Required]
-        public string 項目類型 { get; set; }
-        
         [StringLength(500, ErrorMessage="欄位長度不得大於 500 個字元")]
         public string 圖檔替代名稱 { get; set; }
         
@@ -36,12 +32,16 @@ namespace MTWIN.Models
         
         [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
         public string 建立者 { get; set; }
-        [Required]
-        public System.DateTime 建立時間 { get; set; }
+        public Nullable<System.DateTime> 建立時間 { get; set; }
         
         [StringLength(50, ErrorMessage="欄位長度不得大於 50 個字元")]
         public string 修改者 { get; set; }
+        public Nullable<System.DateTime> 修改時間 { get; set; }
         [Required]
-        public System.DateTime 修改時間 { get; set; }
+        public bool 已刪除 { get; set; }
+        [Required]
+        public int 項目類型Id { get; set; }
+    
+        public virtual 首頁項目分類 首頁項目分類 { get; set; }
     }
 }

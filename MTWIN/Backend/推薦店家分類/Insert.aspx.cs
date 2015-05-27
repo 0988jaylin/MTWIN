@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.Entity;
 using MTWIN.Models;
 
-namespace MTWIN.Backend.分類項目
+namespace MTWIN.Backend.推薦店家分類
 {
     public partial class Insert : System.Web.UI.Page
     {
@@ -18,20 +18,20 @@ namespace MTWIN.Backend.分類項目
 
         }
 
-        // This is the Insert method to insert the entered 分類項目 item
+        // This is the Insert method to insert the entered 推薦店家分類 item
         // USAGE: <asp:FormView InsertMethod="InsertItem">
         public void InsertItem()
         {
             using (_db)
             {
-                var item = new MTWIN.Models.分類項目();
+                var item = new MTWIN.Models.推薦店家分類();
 
                 TryUpdateModel(item);
 
                 if (ModelState.IsValid)
                 {
                     // Save changes
-                    _db.分類項目.Add(item);
+                    _db.推薦店家分類.Add(item);
                     _db.SaveChanges();
 
                     Response.Redirect("Default");
