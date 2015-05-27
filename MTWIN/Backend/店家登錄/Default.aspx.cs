@@ -19,7 +19,7 @@ namespace MTWIN.Backend.店家登錄
         // USAGE: <asp:ListView SelectMethod="GetData">
         public IQueryable<MTWIN.Models.店家登錄> GetData()
         {
-            return _db.店家登錄;
+            return _repo店家登錄;
         }
     }
 }

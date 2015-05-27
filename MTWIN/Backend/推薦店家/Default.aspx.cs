@@ -19,7 +19,8 @@ namespace MTWIN.Backend.推薦店家
         // USAGE: <asp:ListView SelectMethod="GetData">
         public IQueryable<MTWIN.Models.推薦店家> GetData()
         {
-            return _db.推薦店家.Include(m => m.推薦店家分類);
+            //return _db.推薦店家.Include(m => m.推薦店家分類);
+            return _repo推薦店家.All();
         }
     }
 }
